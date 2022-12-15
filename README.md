@@ -10,6 +10,7 @@ A simple demo app for people checking in. The system will print "Hello XXX" when
 
 * Flask
 * Python
+* Ajax
 
 ### Installing
 

@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, jsonify
 
+# local database
 db = []
 
 app = Flask(__name__)
