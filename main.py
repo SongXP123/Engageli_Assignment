@@ -1,14 +1,22 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
+
+db = []
+
 app = Flask(__name__)
 
-@app.route('/')
-def my_form():
-    return render_template('page.html')
+@app.route("/")
+@app.route("/home")
+def home():
+    return render_template("page.html", title='', db=db)
 
-@app.route('/', methods=['POST'])
-def my_form_post():
-    variable = request.form['variable']
-    return variable
+
+@app.route("/create", methods=['POST'])
+def create():
+    data = request.get_json()
+    name = data['note']
+    db.append(name)
+    result = {'success': True, 'response': 'Done'}
+    return jsonify(result)
 
 
 if __name__ == '__main__':
